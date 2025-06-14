@@ -32,4 +32,4 @@ jobs:
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: pnpm dlx semantic-release --dry-run
+        run: pnpm dlx semantic-release
