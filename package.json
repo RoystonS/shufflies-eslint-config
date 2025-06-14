@@ -1,0 +1,46 @@
+{
+  "name": "@shufflies/eslint-config",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./lib/esm/index.js",
+      "require": "./lib/cjs/index.js",
+      "types": "./lib/types/index.d.ts"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir lib/types -p .",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs -p .",
+    "build:esm": "tsc --module nodenext --outDir lib/esm -p .",
+    "build": "zx scripts/build.mjs"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "author": "Royston Shufflebotham",
+  "license": "MIT",
+  "packageManager": "pnpm@10.11.0",
+  "peerDependencies": {
+    "eslint": ">=9"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.1",
+    "concurrently": "^9.1.2",
+    "rimraf": "^6.0.1",
+    "zx": "^8.5.5"
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.3.0",
+    "@eslint/js": "^9.29.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unicorn": "^59.0.1",
+    "typescript-eslint": "^8.34.0"
+  }
+}
