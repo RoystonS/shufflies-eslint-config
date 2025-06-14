@@ -29,6 +29,8 @@ jobs:
           npm whoami
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build package
+        run: pnpm run build
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
