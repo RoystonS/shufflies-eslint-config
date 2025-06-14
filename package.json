@@ -14,6 +14,7 @@
     "lib"
   ],
   "scripts": {
+    "prepare": "husky install",
     "clean": "rimraf lib",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir lib/types -p .",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs -p .",
@@ -27,13 +28,29 @@
   "author": "Royston Shufflebotham",
   "license": "MIT",
   "packageManager": "pnpm@10.11.0",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RoystonS/shufflies-eslint-config"
+  },
   "peerDependencies": {
     "eslint": ">=9"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.3",
+    "@semantic-release/npm": "^12.0.1",
     "@types/node": "^24.0.1",
     "concurrently": "^9.1.2",
+    "husky": "^9.1.7",
     "rimraf": "^6.0.1",
+    "semantic-release": "^24.2.5",
     "zx": "^8.5.5"
   },
   "dependencies": {
