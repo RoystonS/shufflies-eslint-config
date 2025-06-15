@@ -17,9 +17,10 @@
   "scripts": {
     "prepare": "husky",
     "clean": "rimraf lib",
-    "build:types": "tsc --declaration --emitDeclarationOnly --outDir lib/types -p .",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs -p .",
-    "build:esm": "tsc --module nodenext --outDir lib/esm -p .",
+    "test": "eslint test --config test/eslint.config.mjs --report-unused-disable-directives",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir lib/types -p src",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs -p src",
+    "build:esm": "tsc --module nodenext --outDir lib/esm -p src",
     "build": "zx scripts/build.mjs"
   },
   "keywords": [
