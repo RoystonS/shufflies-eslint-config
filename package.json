@@ -15,7 +15,7 @@
     "lib"
   ],
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "clean": "rimraf lib",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir lib/types -p .",
     "build:cjs": "tsc --module commonjs --outDir lib/cjs -p .",
