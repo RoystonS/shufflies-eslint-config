@@ -4,6 +4,6 @@
     "source.fixAll": "always"
   },
   "eslint.useFlatConfig": true,
-  "cSpell.words": ["nodenext", "Royston", "Shufflebotham", "shufflies"],
+  "cSpell.words": ["nodenext", "npmjs", "Royston", "Shufflebotham", "shufflies", "USERCONFIG"],
   "cSpell.ignorePaths": ["pnpm-lock.yaml", "node_modules", ".git", ".vscode", "lib"]
 }
