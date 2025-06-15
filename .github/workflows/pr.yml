@@ -29,3 +29,17 @@ jobs:
         run: pnpm run build
       - name: Run tests
         run: pnpm run test
+
+  # Collect the above matrix together into a single check that PRs can be blocked on
+  ci-success:
+    runs-on: ubuntu-latest
+    needs: [build-and-test]
+    if: always()
+    steps:
+      - name: Check build and test results
+        run: |
+          if [ "${{ needs.build-and-test.result }}" != "success" ]; then
+            echo "Build and test failed"
+            exit 1
+          fi
+          echo "All checks passed"
