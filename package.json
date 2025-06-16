@@ -28,7 +28,7 @@
   ],
   "author": "Royston Shufflebotham",
   "license": "MIT",
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "npm@11.4.2",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

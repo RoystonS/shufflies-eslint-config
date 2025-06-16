@@ -8,7 +8,7 @@ It's my own personal set of reusable eslint configuration.
 Install the package:
 
 ```shell
-pnpm i -D @shufflies/eslint-config
+npm install -D @shufflies/eslint-config
 ```
 
 Reference it in an `eslint.config.mjs` or `eslint.config.ts`:
