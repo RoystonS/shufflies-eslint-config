@@ -13,22 +13,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
       - name: Install Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: "https://registry.npmjs.org"
-          cache: "pnpm"
+          cache: "npm"
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: npm ci
       - name: Build package
-        run: pnpm run build
+        run: npm run build
       - name: Run tests
-        run: pnpm run test
+        run: npm test
 
   # Collect the above matrix together into a single check that PRs can be blocked on
   ci-success:
