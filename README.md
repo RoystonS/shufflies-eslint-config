@@ -23,6 +23,13 @@ import { defineConfig } from "eslint/config";
 export default defineConfig(
   ...recommended({
     gitignorePaths: [fileURLToPath(new URL(".gitignore", import.meta.url))],
-  })
+  }),
+
+  // Other rule/config overrides
+  {
+    rules: {
+      "some/rule": "off"
+    }
+  }
 );
 ```
