@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "03:00"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "RoystonS"  # Replace with your GitHub username
+    assignees:
+      - "RoystonS"  # Replace with your GitHub username
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+    allow:
+      - dependency-type: "all"
+
+    groups:
+      eslint:
+        patterns:
+          - "@eslint/*"
+          - "eslint*"
+          - "typescript-eslint"
+        update-types:
+          - "major"
+          - "minor"          
