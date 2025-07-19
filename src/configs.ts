@@ -35,6 +35,10 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
       name: "override unicorn defaults",
       rules: {
         "unicorn/filename-case": "off",
+
+        // Don't force changing 'Props' to 'Properties' and
+        // 'el' to 'element' and so on.
+        "unicorn/prevent-abbreviations": "off",
       },
     },
 
