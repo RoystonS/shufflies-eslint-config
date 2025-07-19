@@ -1,5 +1,6 @@
 import { type FlatConfig, includeIgnoreFile } from "@eslint/compat";
 import eslint from "@eslint/js";
+import importPlugin from "eslint-plugin-import";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import tseslint from "typescript-eslint";
@@ -24,6 +25,11 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
     eslint.configs.recommended,
     tseslint.configs.recommended as any,
     eslintPluginUnicorn.configs.recommended,
+
+// eslint-plugin-import
+importPlugin.flatConfigs.recommended,
+    importPlugin.flatConfigs.typescript,
+
     {
       rules: {
         "unicorn/filename-case": "off",
@@ -48,8 +54,7 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
 
-        // ✅ Good hygiene
-        "no-duplicate-imports": "error",
+        "import/no-unresolved": ["error", { ignore: ["eslint/config"] }],
       },
     },
     {
