@@ -19,24 +19,27 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
 
   const result: FlatConfig[] = [
     {
-      ignores: gitIgnores.flat(),
+      name: ".gitignore contents",
+      ignores: gitIgnores.flat().concat("foo/"),
     },
 
-    eslint.configs.recommended,
+    { name: "eslint recommended", ...eslint.configs.recommended },
     tseslint.configs.recommended as any,
     eslintPluginUnicorn.configs.recommended,
 
-// eslint-plugin-import
-importPlugin.flatConfigs.recommended,
+    // eslint-plugin-import
+    importPlugin.flatConfigs.recommended,
     importPlugin.flatConfigs.typescript,
 
     {
+      name: "override unicorn defaults",
       rules: {
         "unicorn/filename-case": "off",
       },
     },
 
     {
+      name: "override imports defaults",
       plugins: {
         "simple-import-sort": simpleImportSort,
       },
@@ -58,6 +61,7 @@ importPlugin.flatConfigs.recommended,
       },
     },
     {
+      name: "override ts-eslint defaults",
       rules: {
         "@typescript-eslint/no-empty-object-type": "off",
         "@typescript-eslint/no-unused-vars": [
