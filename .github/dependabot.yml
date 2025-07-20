@@ -15,6 +15,17 @@ updates:
       - dependency-type: "all"
 
     groups:
+      # Group together packages that change frequently due to
+      # tracking browser versions, and update only when significant.
+      browserversions:
+        patterns:
+          - "browserslist"
+          - "caniuse-lite"
+          - "electron-to-chromium"
+        update-types:
+          - "major"
+          - "minor"
+          
       eslint:
         patterns:
           - "@eslint/*"
