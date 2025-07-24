@@ -39,6 +39,11 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
         // Don't force changing 'Props' to 'Properties' and
         // 'el' to 'element' and so on.
         "unicorn/prevent-abbreviations": "off",
+
+        // Being prohibited from passing undefined to functions that
+        // are defined as "foo | undefined" is irritating, so we
+        // disable this rule.
+        "unicorn/no-useless-undefined": "off",
       },
     },
 
