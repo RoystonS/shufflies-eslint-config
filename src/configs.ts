@@ -32,6 +32,13 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
     importPlugin.flatConfigs.typescript,
 
     {
+      name: "override eslint core rule defaults",
+      rules: {
+        eqeqeq: "error",
+      },
+    },
+
+    {
       name: "override unicorn defaults",
       rules: {
         "unicorn/filename-case": "off",
