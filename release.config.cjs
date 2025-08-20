@@ -5,13 +5,8 @@ module.exports = {
     [
       "@semantic-release/commit-analyzer",
       {
-        releaseRules: [
-          // Default: ignore all plain chore(deps)
-          { type: "chore", scope: "deps", release: false },
-          // Special-case: treat ESLint bumps as a minor release
-          { type: "chore", scope: "deps", release: "minor", subject: /bump.*(eslint)/i },
-        ]
-      }
+        preset: "conventionalcommits",
+      },
     ],
 
     // Generate release notes based on commit messages
