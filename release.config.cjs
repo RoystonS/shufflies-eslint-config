@@ -6,6 +6,10 @@ module.exports = {
       "@semantic-release/commit-analyzer",
       {
         preset: "conventionalcommits",
+        releaseRules: [
+          // Dependency chores with specific subjects can trigger a release
+          { type: 'chore', scope: 'deps', subject: "*bump*eslint*", release: 'minor' }
+        ],
       },
     ],
 
