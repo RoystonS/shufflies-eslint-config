@@ -12,8 +12,17 @@ updates:
       prefix: "chore"
       include: "scope"
 
-    allow:
-      - dependency-type: "all"
+    # These packages change constantly, and we really don't care
+    ignore:
+      - dependency-name: "caniuse-lite"
+        update-types:
+          - "version-update:semver-patch"
+      - dependency-name: "electron-to-chromium"
+        update-types:
+          - "version-update:semver-patch"
+      - dependency-name: "browserslist"
+        update-types:
+          - "version-update:semver-patch"
 
     groups:
       # Group together packages that change frequently due to
@@ -23,15 +32,10 @@ updates:
           - "browserslist"
           - "caniuse-lite"
           - "electron-to-chromium"
-        update-types:
-          - "major"
-          - "minor"
-          
+
       eslint:
         patterns:
           - "@eslint/*"
           - "eslint*"
           - "typescript-eslint"
-        update-types:
-          - "major"
-          - "minor"
+          - "@typescript-eslint/*"
