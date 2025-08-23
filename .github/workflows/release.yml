@@ -6,16 +6,21 @@ on:
       - next
 
 permissions:
-  # Needed for OIDC for npm publication
-  id-token: write
-  # Needed for semantic release to update issues
-  issues: write
-  # Needed for semantic release to create tags + releases
-  contents: write
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      # Needed for OIDC for npm publication
+      id-token: write
+      # Needed for semantic release to update issues
+      issues: write
+      # Needed for semantic release to create tags + releases
+      contents: write
+      # Needed for semantic release to update PRs
+      pull-requests: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,7 +33,7 @@ jobs:
       - name: npm version
         run: npm -v
       - name: Install dependencies
-        run: npm ci
+        run: npm clean-install
       - name: Build package
         run: npm run build
       - name: Run tests
@@ -36,4 +41,4 @@ jobs:
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: npx semantic-release --debug
