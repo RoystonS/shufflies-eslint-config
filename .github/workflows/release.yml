@@ -6,8 +6,12 @@ on:
       - next
 
 permissions:
-  id-token: write # Needed for OIDC for npm publication
-  contents: read
+  # Needed for OIDC for npm publication
+  id-token: write
+  # Needed for semantic release to update issues
+  issues: write
+  # Needed for semantic release to create tags + releases
+  contents: write
 
 jobs:
   build:
