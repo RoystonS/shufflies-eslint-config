@@ -51,7 +51,7 @@
     "concurrently": "^9.2.0",
     "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "semantic-release": "25.0.0-beta.6",
+    "semantic-release": "25.0.0-beta.5",
     "zx": "^8.7.1"
   },
   "dependencies": {
@@ -63,6 +63,11 @@
     "typescript-eslint": "^8.40.0"
   },
   "overrides": {
-    "semantic-release": "25.0.0-beta.6"
+    "@semantic-release/error": "4.0.0",
+    "@semantic-release/npm": "13.0.0-alpha.15",
+    "semantic-release": {
+      ".": "25.0.0-beta.5",
+      "@semantic-release/npm": "13.0.0-alpha.15"
+    }
   }
 }
