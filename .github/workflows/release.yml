@@ -5,27 +5,35 @@ on:
       - main
       - next
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      # Needed for OIDC for npm publication
+      id-token: write
+      # Needed for semantic release to update issues
+      issues: write
+      # Needed for semantic release to create tags + releases
+      contents: write
+      # Needed for semantic release to update PRs
+      pull-requests: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22.x"
+          node-version: "24.x"
           registry-url: "https://registry.npmjs.org"
           cache: "npm"
-      - name: Setup npm auth
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > "${NPM_CONFIG_USERCONFIG}"
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: npm whoami
-        run: |
-          npm whoami
+      - name: npm version
+        run: npm -v
       - name: Install dependencies
-        run: npm ci
+        run: npm clean-install
       - name: Build package
         run: npm run build
       - name: Run tests
@@ -33,4 +41,4 @@ jobs:
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: npx semantic-release --debug
