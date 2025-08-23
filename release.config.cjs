@@ -1,5 +1,8 @@
 module.exports = {
-  branches: ["main"],
+  branches: [
+    "main",
+    { name: "next", prerelease: true }
+  ],
   plugins: [
     // Analyze commit messages to determine the type of release
     [
