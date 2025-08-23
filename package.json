@@ -31,6 +31,7 @@
   "packageManager": "npm@11.4.2",
   "publishConfig": {
     "access": "public",
+    "provenance": true,
     "registry": "https://registry.npmjs.org/"
   },
   "repository": {
@@ -45,12 +46,12 @@
     "@commitlint/config-conventional": "^19.8.1",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/github": "^11.0.3",
-    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/npm": "13.0.0-alpha.15",
     "@types/node": "^24.1.0",
     "concurrently": "^9.2.0",
     "husky": "^9.1.7",
     "rimraf": "^6.0.1",
-    "semantic-release": "^24.2.7",
+    "semantic-release": "25.0.0-beta.5",
     "zx": "^8.7.1"
   },
   "dependencies": {
@@ -60,5 +61,13 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unicorn": "^60.0.0",
     "typescript-eslint": "^8.40.0"
+  },
+  "overrides": {
+    "@semantic-release/error": "4.0.0",
+    "@semantic-release/npm": "13.0.0-alpha.15",
+    "semantic-release": {
+      ".": "25.0.0-beta.5",
+      "@semantic-release/npm": "13.0.0-alpha.15"
+    }
   }
 }
