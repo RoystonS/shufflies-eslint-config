@@ -51,6 +51,10 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
         // are defined as "foo | undefined" is irritating, so we
         // disable this rule.
         "unicorn/no-useless-undefined": "off",
+
+        // There is no need to _prohibit_ zero fractions.
+        // It's perfectly reasonable to write [0.6, 0.8, 1.0, 1.2]
+        "unicorn/no-zero-fractions": "off",
       },
     },
 
