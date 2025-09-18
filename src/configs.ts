@@ -83,6 +83,7 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
     {
       name: "override ts-eslint defaults",
       rules: {
+        "@typescript-eslint/explicit-member-accessibility": "error",
         "@typescript-eslint/no-empty-object-type": "off",
         "@typescript-eslint/no-unused-vars": [
           "error",
