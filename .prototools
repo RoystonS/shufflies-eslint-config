@@ -1,5 +1,5 @@
-node = "24.3.0"
-npm = "11.5.2"
+node = "24.10.0"
+npm = "11.6.1"
 
 [settings]
 auto-install = true
