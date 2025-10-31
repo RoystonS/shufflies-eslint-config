@@ -10,6 +10,7 @@
       "types": "./lib/types/index.d.ts"
     }
   },
+  "main": "./lib/esm/index.js",
   "files": [
     "lib"
   ],
