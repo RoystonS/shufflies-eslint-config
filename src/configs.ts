@@ -55,6 +55,10 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
         // There is no need to _prohibit_ zero fractions.
         // It's perfectly reasonable to write [0.6, 0.8, 1.0, 1.2]
         "unicorn/no-zero-fractions": "off",
+
+        // Prettier handles ternary formatting differently, using smart
+        // line breaks rather than brackets.
+        "unicorn/no-nested-ternary": "off",
       },
     },
 
