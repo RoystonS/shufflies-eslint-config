@@ -52,7 +52,7 @@
     "@types/node": "^24.9.2",
     "concurrently": "^9.2.1",
     "husky": "^9.1.7",
-    "rimraf": "^6.1.0",
+    "rimraf": "^6.1.2",
     "semantic-release": "25.0.1",
     "zx": "^8.8.5"
   },
