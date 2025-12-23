@@ -27,7 +27,7 @@ updates:
     groups:
       # Group together packages that change frequently due to
       # tracking browser versions, and update only when significant.
-      browserversions:
+      browser-versions:
         patterns:
           - "browserslist"
           - "caniuse-lite"
@@ -39,3 +39,12 @@ updates:
           - "eslint*"
           - "typescript-eslint"
           - "@typescript-eslint/*"
+
+      commit-lint:
+        patterns:
+          - "@commitlint/*"
+
+      semantic-release:
+        patterns:
+          - "@semantic-release/*"
+          - "semantic-release"
