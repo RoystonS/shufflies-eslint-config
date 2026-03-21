@@ -1,6 +1,7 @@
 import { type FlatConfig, includeIgnoreFile } from "@eslint/compat";
 import eslint from "@eslint/js";
-import importPlugin from "eslint-plugin-import";
+import { createNodeResolver, importX } from "eslint-plugin-import-x";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
 import tseslint from "typescript-eslint";
@@ -27,9 +28,15 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
     tseslint.configs.recommended as any,
     eslintPluginUnicorn.configs.recommended,
 
-    // eslint-plugin-import
-    importPlugin.flatConfigs.recommended,
-    importPlugin.flatConfigs.typescript,
+    // eslint-plugin-import-x
+    importX.flatConfigs.recommended,
+    importX.flatConfigs.typescript,
+    {
+      name: "import-x resolver config",
+      settings: {
+        "import-x/resolver-next": [createTypeScriptImportResolver(), createNodeResolver()],
+      },
+    },
 
     {
       name: "override eslint core rule defaults",
@@ -81,7 +88,7 @@ export function recommended(args: RecommendedConfigArgs = {}): ReadonlyArray<Fla
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
 
-        "import/no-unresolved": ["error", { ignore: ["eslint/config"] }],
+        "import-x/no-unresolved": ["error", { ignore: ["eslint/config"] }],
       },
     },
     {
