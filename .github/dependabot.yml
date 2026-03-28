@@ -48,3 +48,14 @@ updates:
         patterns:
           - "@semantic-release/*"
           - "semantic-release"
+
+      tooling:
+        patterns:
+          - "@types/node"
+          - "concurrently"
+          - "husky"
+          - "rimraf"
+
+      transitive-deps:
+        patterns:
+          - "*"
