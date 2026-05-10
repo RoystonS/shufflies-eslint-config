@@ -28,8 +28,8 @@ export default defineConfig(
   // Other rule/config overrides
   {
     rules: {
-      "some/rule": "off"
-    }
-  }
+      "some/rule": "off",
+    },
+  },
 );
 ```
