@@ -23,8 +23,10 @@ jobs:
         run: npm ci
       - name: Build package
         run: npm run build
+      - name: Check formatting
+        run: npm run format:check
       - name: Run tests
-        run: npm test
+        run: npm run test
 
   # Collect the above matrix together into a single check that PRs can be blocked on
   ci-success:

@@ -1,8 +1,5 @@
 module.exports = {
-  branches: [
-    "main",
-    { name: "next", prerelease: true }
-  ],
+  branches: ["main", { name: "next", prerelease: true }],
   plugins: [
     // Analyze commit messages to determine the type of release
     [
@@ -11,7 +8,7 @@ module.exports = {
         preset: "conventionalcommits",
         releaseRules: [
           // Dependency chores with specific subjects can trigger a release
-          { type: 'chore', scope: 'deps', subject: "*bump*eslint*", release: 'minor' }
+          { type: "chore", scope: "deps", subject: "*bump*eslint*", release: "minor" },
         ],
       },
     ],
